@@ -1,0 +1,21 @@
+.profileContainer {
+  position: relative;
+}
+
+.profileDropdown {
+  position: absolute;
+  width: 100%;
+  bottom: 100%; /* Position it above the profile section */
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profileDropdown button {
+  margin-top: 4px;
+  cursor: pointer;
+}

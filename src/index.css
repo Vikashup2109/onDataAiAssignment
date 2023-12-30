@@ -3,14 +3,46 @@
 @tailwind utilities;
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.tabIcon {
+  display: flex;
+  gap: 20px;
+  padding: 12px 33px;
+  color: #8e8e8e;
+  font-size: 16px;
+}
+
+.tabIcon:hover {
+  border-radius: 10px;
+  background: #eaf5ff;
+  color: #2b7ffc;
+}
+
+.tableTheadTH {
+  padding: 0 15px;
+  line-height: 45px;
+  color: #464a53;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.tableTbodyTd {
+  padding: 0 15px;
+  text-align: left;
+  line-height: 45px;
+  color: #464a53;
+  font-size: 13px;
+  font-weight: 400;
 }

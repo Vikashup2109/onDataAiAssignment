@@ -2,7 +2,7 @@ import React from "react";
 
 const ToogleIcon = ({ toggleMenu }) => {
   return (
-    <div className="fixed top-0 flex justify-between items-center p-[15px]">
+    <div className="fixed top-0 flex justify-between items-center p-[10px]">
       <div className="flex items-center">
         <button onClick={toggleMenu}>
           <svg
