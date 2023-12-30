@@ -142,7 +142,9 @@ const AiInsights = ({ apiData, profile }) => {
             </div>
           </div>
         </div>
-        <div>{/* <ChartMap /> */}</div>
+        <div>
+          <ChartMap />
+        </div>
       </div>
 
       {/* Recievable Section */}
