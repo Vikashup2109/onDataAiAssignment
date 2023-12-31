@@ -16,7 +16,7 @@ const AiInsights = ({ apiData, profile }) => {
     );
 
     return (
-      <table className="w-full">
+      <table className="w-full table">
         <thead className="border">
           <tr>
             <th className="tableTheadTH">Invoice#</th>
@@ -53,13 +53,13 @@ const AiInsights = ({ apiData, profile }) => {
 
   function Pagination({ pages, currentPage, onPageChange }) {
     const pageNumbers = Array.from({ length: pages }, (_, index) => index + 1);
-    console.log({
-      line: 100,
-      pageNumbers,
-      pageNumbersLength: pageNumbers.length,
-    });
+    // console.log({
+    //   line: 100,
+    //   pageNumbers,
+    //   pageNumbersLength: pageNumbers.length,
+    // });
     return (
-      <div className="flex gap-6 justify-end text-[12px] leading-[54px]">
+      <div className="flex gap-6 justify-center sm:justify-end text-[12px] leading-[54px] ">
         <span
           disabled={currentPage === 1}
           onClick={() =>
@@ -104,8 +104,8 @@ const AiInsights = ({ apiData, profile }) => {
   return (
     <div className="flex flex-col gap-4">
       {/* Visual Section */}
-      <div className="p-[12px] flex justify-between">
-        <div className="w-1/2 max-w-[356px] bg-custom-gradient rounded-[12px] p-[20px] flex flex-col gap-[25px]">
+      <div className="sm:p-[12px] flex flex-col sm:flex-row justify-around">
+        <div className="w-full sm:w-1/2 max-w-full sm:max-w-[356px] bg-custom-gradient rounded-[12px] p-[20px] flex flex-col gap-[25px]">
           <div className="flex justify-between">
             <div className="flex flex-col text-[#555454] ">
               <span className="font-[700] text-[16px]">Total Cash Balance</span>
@@ -120,42 +120,44 @@ const AiInsights = ({ apiData, profile }) => {
               + Add Bank
             </button>
           </div>
-          <span className="text-[25px] font-[600]">
+          <span className="text-[22px] sm:text-[25px] font-[600]">
             ${apiData[profile].totalCashBalance}
           </span>
           <div className="flex justify-between">
             <div className="flex flex-col">
-              <span className="text-[#555454] text-[16px] font-[400]">
+              <span className="text-[#555454] text-[12px] sm:text-[16px] font-[400]">
                 Operating Cash
               </span>
-              <span className="text-[#555454] text-[16px] font-[400]">
+              <span className="text-[#555454] text-[12px] sm:text-[16px] font-[400]">
                 ${apiData[profile].operatingCash}
               </span>
             </div>
             <div className="flex flex-col">
-              <span className="text-[#555454] text-[16px] font-[400]">
+              <span className="text-[#555454] text-[12px] sm:text-[16px] font-[400]">
                 Investments & Other
               </span>
-              <span className="text-[#555454] text-[16px] font-[400]">
+              <span className="text-[#555454] text-[12px] sm:text-[16px] font-[400]">
                 ${apiData[profile].investments}
               </span>
             </div>
           </div>
         </div>
-        <div>
-          <ChartMap />
+        <div className="w-full sm:w-[400px]">
+          <ChartMap apiData={apiData} profile={profile} />
         </div>
       </div>
 
       {/* Recievable Section */}
-      <div>
+      <div className="w-full">
         <div className="text-[#555454] text-[16px] font-[700] pb-[10px]">
-          Accounts Receivable{" "}
+          Accounts Receivable
         </div>
-        <InvoicesTable
-          invoices={selectedProfile.recievable}
-          currentPage={currentPageReceivable}
-        />
+        <div className="w-full overflow-x-scroll sm:overflow-hidden">
+          <InvoicesTable
+            invoices={selectedProfile.recievable}
+            currentPage={currentPageReceivable}
+          />
+        </div>
         <Pagination
           pages={totalPages}
           currentPage={currentPageReceivable}
@@ -164,14 +166,16 @@ const AiInsights = ({ apiData, profile }) => {
       </div>
 
       {/* Payable Section */}
-      <div>
+      <div className="w-full">
         <div className="text-[#555454] text-[16px] font-[700] pb-[10px]">
           Accounts Payable
         </div>
-        <InvoicesTable
-          invoices={selectedProfile.payable}
-          currentPage={currentPagePayable}
-        />
+        <div className="w-full overflow-x-scroll sm:overflow-hidden">
+          <InvoicesTable
+            invoices={selectedProfile.payable}
+            currentPage={currentPagePayable}
+          />
+        </div>
         <Pagination
           pages={totalPages}
           currentPage={currentPagePayable}
