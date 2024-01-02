@@ -29,6 +29,9 @@ function App() {
     element.classList.add("activeTab");
     const element2 = document.getElementById(activeTab);
     element2.classList.remove("activeTab");
+    if (window.innerWidth < 640) {
+      setIsMenuOpen(false);
+    }
   }
   const [profile, setProfile] = useState("profile1");
 
